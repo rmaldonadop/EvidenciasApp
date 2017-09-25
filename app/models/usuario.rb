@@ -6,5 +6,9 @@ class Usuario < ApplicationRecord
 
   #devise :omniauthable, :omniauth_providers: [:google]
 
+  def email_requiered?
+  	false
+  end
+
   validates :rut, presence: true, uniqueness: true
 end
