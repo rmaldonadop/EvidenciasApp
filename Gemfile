@@ -36,6 +36,12 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 #gema para control de login
 gem 'devise', '~> 4.3'
 
+#instalacion de omniath
+gem 'omniauth', '~> 1.6', '>= 1.6.1'
+
+#midleware omniauth google
+gem 'omniauth-google-oauth2', '~> 0.5.2'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
