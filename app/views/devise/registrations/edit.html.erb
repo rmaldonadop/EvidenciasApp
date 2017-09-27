@@ -1,14 +1,26 @@
 <div class="row">
   <div class="col-md-4">
     
-    <h2><span class="glyphicon glyphicon-user"></span> Editar <%= resource_name.to_s.humanize %></h2>
+    <h2><span class="glyphicon glyphicon-user"></span> Editar <%= resource_name.to_s.humanize %> </h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, role: "form" }) do |f| %>
-      <%= devise_error_messages! %>
+      <div class="form-group">
+        <%= devise_error_messages! %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :nombre %><br />
+        <%= f.text_field :nombre %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :apellidos %><br />
+        <%= f.text_field :apellido %>
+      </div>
 
       <div class="form-group">
         <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true %>
+        <%= f.email_field :email %>
       </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -16,21 +28,21 @@
       <% end %>
 
       <div class="form-group">
-        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+        <%= f.label :contraseña %> <i>(dejar en blanco si no desea cambiarlo)</i><br />
         <%= f.password_field :password, autocomplete: "off" %>
         <% if @minimum_password_length %>
           <br />
-          <em><%= @minimum_password_length %> characters minimum</em>
+          <em><%= @minimum_password_length %> caracteres minimo</em>
         <% end %>
       </div>
 
       <div class="form-group">
-        <%= f.label :password_confirmation %><br />
+        <%= f.label :confirmar_contraseña %><br />
         <%= f.password_field :password_confirmation, autocomplete: "off" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+        <%= f.label :contraseña_actual %> <i>(necesitamos su contraseña actual para confirmar sus cambios)</i><br />
         <%= f.password_field :current_password, autocomplete: "off" %>
       </div>
 
@@ -41,7 +53,7 @@
 
     <h3>Cancelar mi cuenta</h3>
 
-    <p>¿Infeliz? <%= button_to "Cancelar mi cuenta", registration_path(resource_name), class: "btn btn-danger", data: { confirm: "Are you sure?" }, method: :delete %></p>
+    <p>¿Infeliz? <%= button_to "Cancelar mi cuenta", registration_path(resource_name), class: "btn btn-danger", data: { confirm: "'¿Esta seguro?" }, method: :delete %></p>
 
     <%= link_to "Volver", :back %>
 
