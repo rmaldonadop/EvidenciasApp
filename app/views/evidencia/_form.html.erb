@@ -1,0 +1,47 @@
+<%= form_with(model: evidencium, local: true) do |form| %>
+  <% if evidencium.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(evidencium.errors.count, "error") %> prohibited this evidencium from being saved:</h2>
+
+      <ul>
+      <% evidencium.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :codigo %>
+    <%= form.text_field :codigo, id: :evidencium_codigo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, id: :evidencium_nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :descripcion %>
+    <%= form.text_field :descripcion, id: :evidencium_descripcion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :universidad_id %>
+    <%= form.text_field :universidad_id, id: :evidencium_universidad_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :usuario_id %>
+    <%= form.text_field :usuario_id, id: :evidencium_usuario_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tipo_evidencia_id %>
+    <%= form.text_field :tipo_evidencia_id, id: :evidencium_tipo_evidencia_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

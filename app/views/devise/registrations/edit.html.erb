@@ -9,17 +9,17 @@
       </div>
 
       <div class="form-group">
-        <%= f.label :nombre %><br />
+        <%= f.label :nombre %>
         <%= f.text_field :nombre, class: "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :apellidos %><br />
+        <%= f.label :apellidos %>
         <%= f.text_field :apellido, class: "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :email %><br />
+        <%= f.label :email %>
         <%= f.email_field :email, class: "form-control" %>
       </div>
 
@@ -28,7 +28,7 @@
       <% end %>
 
       <div class="form-group">
-        <%= f.label :nueva_contraseña %> <i>(dejar en blanco si no desea cambiarlo)</i><br />
+        <%= f.label :nueva_contraseña %> <i>(dejar en blanco si no desea cambiarlo)</i>
         <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
         <% if @minimum_password_length %>
           <em><%= @minimum_password_length %> caracteres minimo</em>
@@ -36,12 +36,12 @@
       </div>
 
       <div class="form-group">
-        <%= f.label :confirmar_contraseña %><br />
+        <%= f.label :confirmar_contraseña %>
         <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :contraseña_actual %> <i>(necesaria para confirmar sus cambios)</i><br />
+        <%= f.label :contraseña_actual %> <i>(necesaria para confirmar sus cambios)</i>
         <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
       </div>
 

@@ -4,17 +4,17 @@
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {role: "form"}) do |f| %>
       <div class="form-group">
-        <%= f.label :rut %><br />
+        <%= f.label :rut %>
         <%= f.text_field :rut, autofocus: true, class: "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :contraseña %><br />
+        <%= f.label :contraseña %>
         <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
       </div>
 
       <% if devise_mapping.rememberable? -%>
-        <div class="form-group">
+        <div class="checkbox-inline">
           <%= f.check_box :remember_me %>
           <%= f.label :recordar %>
         </div>

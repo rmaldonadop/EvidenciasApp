@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Codigo:</strong>
+  <%= @evidencium.codigo %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @evidencium.nombre %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @evidencium.descripcion %>
+</p>
+
+<p>
+  <strong>Universidad:</strong>
+  <%= @evidencium.universidad %>
+</p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @evidencium.usuario %>
+</p>
+
+<p>
+  <strong>Tipo evidencia:</strong>
+  <%= @evidencium.tipo_evidencia %>
+</p>
+
+<%= link_to 'Edit', edit_evidencium_path(@evidencium) %> |
+<%= link_to 'Back', evidencia_path %>

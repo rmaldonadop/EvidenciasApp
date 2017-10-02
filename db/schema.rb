@@ -10,7 +10,76 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170925225751) do
+ActiveRecord::Schema.define(version: 20171002035526) do
+
+  create_table "carreras", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "codigo"
+    t.string "nombre"
+    t.string "jefe_carrera"
+    t.bigint "escuela_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["escuela_id"], name: "index_carreras_on_escuela_id"
+  end
+
+  create_table "escuelas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "codigo"
+    t.string "nombre"
+    t.string "director"
+    t.bigint "facultad_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["facultad_id"], name: "index_escuelas_on_facultad_id"
+  end
+
+  create_table "evidencia", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "codigo"
+    t.string "nombre"
+    t.string "descripcion"
+    t.bigint "universidad_id"
+    t.bigint "usuario_id"
+    t.bigint "tipo_evidencia_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tipo_evidencia_id"], name: "index_evidencia_on_tipo_evidencia_id"
+    t.index ["universidad_id"], name: "index_evidencia_on_universidad_id"
+    t.index ["usuario_id"], name: "index_evidencia_on_usuario_id"
+  end
+
+  create_table "facultads", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "codigo"
+    t.string "nombre"
+    t.string "direccion"
+    t.string "decano"
+    t.bigint "universidad_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["universidad_id"], name: "index_facultads_on_universidad_id"
+  end
+
+  create_table "permisos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "codigo"
+    t.string "tipo"
+    t.string "descripcion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tipo_evidencia", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "codigo"
+    t.string "tipo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "universidads", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "codigo"
+    t.string "nombre"
+    t.string "direccion"
+    t.string "casa_matriz"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "usuarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
@@ -32,4 +101,10 @@ ActiveRecord::Schema.define(version: 20170925225751) do
     t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "carreras", "escuelas"
+  add_foreign_key "escuelas", "facultads"
+  add_foreign_key "evidencia", "tipo_evidencia", column: "tipo_evidencia_id"
+  add_foreign_key "evidencia", "universidads"
+  add_foreign_key "evidencia", "usuarios"
+  add_foreign_key "facultads", "universidads"
 end

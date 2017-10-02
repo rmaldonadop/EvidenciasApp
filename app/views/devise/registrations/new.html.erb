@@ -9,22 +9,22 @@
       </div>
 
       <div class="form-group">
-        <%= f.label :rut %><br />
+        <%= f.label :rut %>
         <%= f.text_field :rut, autofocus: true, class: "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :nombre %><br />
+        <%= f.label :nombre %>
         <%= f.text_field :nombre, class: "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :apellidos %><br />
+        <%= f.label :apellidos %>
         <%= f.text_field :apellido, class: "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :email %><br />
+        <%= f.label :email %>
         <%= f.email_field :email, class: "form-control"%>
       </div>
 
@@ -32,12 +32,12 @@
         <%= f.label :contraseña%>
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> caracteres minimo)</em>
-        <% end %><br />
+        <% end %>
         <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :confirmar_contraseña %><br />
+        <%= f.label :confirmar_contraseña %>
         <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
       </div>
 
