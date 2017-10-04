@@ -1,5 +1,6 @@
 class EvidenciaController < ApplicationController
   before_action :set_evidencium, only: [:show, :edit, :update, :destroy]
+  #before_action :authenticate_usuario!, except: [:show, :index]
 
   # GET /evidencia
   # GET /evidencia.json
@@ -69,6 +70,6 @@ class EvidenciaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evidencium_params
-      params.require(:evidencium).permit(:codigo, :nombre, :descripcion, :universidad_id, :usuario_id, :tipo_evidencia_id)
+      params.require(:evidencium).permit(:codigo, :nombre, :descripcion, :universidad_id, :usuario_id, :tipo_evidencia_id, :archivo)
     end
 end

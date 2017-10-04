@@ -10,5 +10,7 @@ class Usuario < ApplicationRecord
   	false
   end
 
+  has_many :evidencias
+
   validates :rut, presence: true, uniqueness: true
 end

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Universidads</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Codigo</th>
+      <th>Nombre</th>
+      <th>Direccion</th>
+      <th>Casa matriz</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @universidads.each do |universidad| %>
+      <tr>
+        <td><%= universidad.codigo %></td>
+        <td><%= universidad.nombre %></td>
+        <td><%= universidad.direccion %></td>
+        <td><%= universidad.casa_matriz %></td>
+        <td><%= link_to 'Show', universidad %></td>
+        <td><%= link_to 'Edit', edit_universidad_path(universidad) %></td>
+        <td><%= link_to 'Destroy', universidad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Universidad', new_universidad_path %>

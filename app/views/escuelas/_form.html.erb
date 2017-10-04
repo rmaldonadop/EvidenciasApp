@@ -27,8 +27,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :facultad_id %>
-    <%= form.text_field :facultad_id, id: :escuela_facultad_id %>
+    <%= form.label :facultad_id, "Facultad" %>
+    <%= form.collection_select :facultad_id, Facultad.all, :id, :nombre %>
   </div>
 
   <div class="actions">

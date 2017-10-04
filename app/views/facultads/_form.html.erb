@@ -27,11 +27,11 @@
   </div>
 
   <div class="field">
-    <%= form.label :universidad_id %>
-    <%= form.text_field :universidad_id, id: :facultad_universidad_id %>
+    <%= form.label :universidad_id, "Universidad" %>
+    <%= form.collection_select :universidad_id, Universidad.all, :id, :nombre %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit %> 
   </div>
 <% end %>
