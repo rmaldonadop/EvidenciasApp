@@ -50,7 +50,7 @@ class EvidenciaController < ApplicationController
         format.json { render json: @evidencium.errors, status: :unprocessable_entity }
       end
     end
-  end
+  end 
 
   # DELETE /evidencia/1
   # DELETE /evidencia/1.json

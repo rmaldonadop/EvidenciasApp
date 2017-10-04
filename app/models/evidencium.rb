@@ -13,7 +13,7 @@ class Evidencium < ApplicationRecord
   		self.nombre = archivo.original_filename
   		#self.extension = archivo.original_filename.split(".").last.downcase
   	end
-  end
+  end 
 
   def path_archivo
   	File.join PATH_ARCHIVOS, "#{self.id}"#."#{self.extension}"
