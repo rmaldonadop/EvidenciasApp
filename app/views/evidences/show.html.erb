@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Codigo:</strong>
+  <%= @evidence.codigo %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @evidence.nombre %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @evidence.descripcion %>
+</p>
+
+<p>
+  <strong>Universidad:</strong>
+  <%= @evidence.universidad %>
+</p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @evidence.usuario %>
+</p>
+
+<p>
+  <strong>Evidencetype:</strong>
+  <%= @evidence.evidencetype %>
+</p>
+
+<%= link_to 'Edit', edit_evidence_path(@evidence) %> |
+<%= link_to 'Back', evidences_path %>

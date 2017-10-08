@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
+  resources :evidences
+  resources :evidencetypes
   resources :permisos
   resources :universidads
-  resources :evidencia
-  resources :tipo_evidencia
   resources :carreras
   resources :escuelas
   resources :facultads

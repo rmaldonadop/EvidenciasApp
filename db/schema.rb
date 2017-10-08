@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171002035526) do
+ActiveRecord::Schema.define(version: 20171008211035) do
 
   create_table "carreras", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "codigo"
@@ -32,18 +32,25 @@ ActiveRecord::Schema.define(version: 20171002035526) do
     t.index ["facultad_id"], name: "index_escuelas_on_facultad_id"
   end
 
-  create_table "evidencia", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "evidences", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "codigo"
     t.string "nombre"
     t.string "descripcion"
     t.bigint "universidad_id"
     t.bigint "usuario_id"
-    t.bigint "tipo_evidencia_id"
+    t.bigint "evidencetype_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["tipo_evidencia_id"], name: "index_evidencia_on_tipo_evidencia_id"
-    t.index ["universidad_id"], name: "index_evidencia_on_universidad_id"
-    t.index ["usuario_id"], name: "index_evidencia_on_usuario_id"
+    t.index ["evidencetype_id"], name: "index_evidences_on_evidencetype_id"
+    t.index ["universidad_id"], name: "index_evidences_on_universidad_id"
+    t.index ["usuario_id"], name: "index_evidences_on_usuario_id"
+  end
+
+  create_table "evidencetypes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "codigo"
+    t.string "tipo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "facultads", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -61,13 +68,6 @@ ActiveRecord::Schema.define(version: 20171002035526) do
     t.string "codigo"
     t.string "tipo"
     t.string "descripcion"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "tipo_evidencia", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "codigo"
-    t.string "tipo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -103,8 +103,8 @@ ActiveRecord::Schema.define(version: 20171002035526) do
 
   add_foreign_key "carreras", "escuelas"
   add_foreign_key "escuelas", "facultads"
-  add_foreign_key "evidencia", "tipo_evidencia", column: "tipo_evidencia_id"
-  add_foreign_key "evidencia", "universidads"
-  add_foreign_key "evidencia", "usuarios"
+  add_foreign_key "evidences", "evidencetypes"
+  add_foreign_key "evidences", "universidads"
+  add_foreign_key "evidences", "usuarios"
   add_foreign_key "facultads", "universidads"
 end

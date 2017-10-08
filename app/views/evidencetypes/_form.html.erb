@@ -1,0 +1,27 @@
+<%= form_with(model: evidencetype, local: true) do |form| %>
+  <% if evidencetype.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(evidencetype.errors.count, "error") %> prohibited this evidencetype from being saved:</h2>
+
+      <ul>
+      <% evidencetype.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :codigo %>
+    <%= form.text_field :codigo, id: :evidencetype_codigo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tipo %>
+    <%= form.text_field :tipo, id: :evidencetype_tipo %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
