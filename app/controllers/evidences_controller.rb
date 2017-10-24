@@ -1,6 +1,6 @@
 class EvidencesController < ApplicationController
   before_action :set_evidence, only: [:show, :edit, :update, :destroy]
-  #before_action :authenticate_usuario!, except: [:show, :index]
+  before_action :authenticate_usuario!, except: [:show, :index]
 
   # GET /evidences
   # GET /evidences.json
@@ -25,7 +25,11 @@ class EvidencesController < ApplicationController
   # POST /evidences
   # POST /evidences.json
   def create
-    @evidence = Evidence.new(evidence_params)
+    
+    tipo_ev = Evidencetype.find(evidence_params[:evidencetype_id]).codigo
+    evidence_params[:codigo] = "#{auxiliar_params[:facultad]}_#{auxiliar_params[:escuela]}_#{auxiliar_params[:carrera]}_#{tipo_ev}"
+
+    @evidence = current_usuario.evidences.new(evidence_params)
 
     respond_to do |format|
       if @evidence.save
@@ -70,6 +74,11 @@ class EvidencesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evidence_params
-      params.require(:evidence).permit(:codigo, :nombre, :descripcion, :universidad_id, :usuario_id, :evidencetype_id, :archivo)
+      #params.require(:evidence).permit(:codigo, :nombre, :descripcion, :universidad_id, :usuario_id, :evidencetype_id, :archivo)
+      @evidence_params ||= params.require(:evidence).permit(:codigo, :nombre, :descripcion, :universidad_id, :usuario_id, :evidencetype_id, :archivo)
+    end
+
+    def auxiliar_params
+      @auxiliar_params ||= params.require(:evidence).permit(:facultad, :escuela, :carrera)
     end
 end

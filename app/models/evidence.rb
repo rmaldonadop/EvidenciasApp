@@ -16,7 +16,7 @@ class Evidence < ApplicationRecord
   end 
 
   def path_archivo
-  	File.join PATH_ARCHIVOS, "#{self.id}"#."#{self.extension}"
+  	File.join PATH_ARCHIVOS, "#{self.codigo}_#{self.nombre}"
   end
 
   def tiene_archivo?

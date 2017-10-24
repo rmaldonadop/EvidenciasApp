@@ -11,11 +11,6 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :codigo %>
-    <%= form.text_field :codigo, id: :evidence_codigo %>
-  </div>
-
   <!--
   <div class="field">
     <%= form.label :nombre %>
@@ -30,37 +25,28 @@
 
   <div class="field">
     <%= form.label :descripcion %>
-    <%= form.text_field :descripcion, id: :evidence_descripcion %>
+    <%= form.text_area :descripcion, id: :evidence_descripcion %>
   </div>
 
   <div class="field">
-    <%= form.label :universidad_id %>
-    <%= form.collection_select :universidad_id, Universidad.all.order("nombre"), :id, :codigo %>
+    <%= form.label :universidad %>
+    <%= form.collection_select :universidad_id, Universidad.all.order("nombre"), :id, :codigo, {selected: 1} %>
   </div>
 
   <div class="field">
-    <%= form.label :usuario_id %>
-    <%= form.collection_select :usuario_id, Usuario.all.order("nombre"), :id, :nombre %>
-  </div> 
-
-
-  <!--
-  <div class="field">
-    <%= form.label :facultad_id, "Facultad" %>
-    <%= form.collection_select :facultad_id, Facultad.all.order("nombre"), :id, :nombre %>
+    <%= form.label "Facultad" %>
+    <%= form.collection_select :facultad, Facultad.all.order("nombre"), :codigo, :nombre %>
   </div>
 
   <div class="field">
-    <%= form.label :escuela_id, "Escuela" %>
-    <%= form.collection_select :escuela_id, Escuela.all.order("nombre"), :id, :nombre %>
+    <%= form.label "Escuela" %>
+    <%= form.collection_select :escuela, Escuela.all.order("nombre"), :codigo, :nombre %>
   </div>
 
   <div class="field">
-    <%= form.label :carrera_id, "Carrera" %>
-    <%= form.collection_select :carrera_id, Carrera.all.order("nombre"), :id, :nombre %>
+    <%= form.label "Carrera" %>
+    <%= form.collection_select :carrera, Carrera.all.order("nombre"), :codigo, :nombre %>
   </div>
-  -->
-
 
   <div class="field">
     <%= form.label :tipo_evidencia_id %>
