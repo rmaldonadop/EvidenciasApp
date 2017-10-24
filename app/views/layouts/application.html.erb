@@ -16,6 +16,9 @@
         <ul class = "nav nav-tabs">
           <% if usuario_signed_in? %>
             <li>
+              <%= link_to "Ver Evidencias", evidences_path %>
+            </li>
+            <li>
               <%= link_to "Editar Perfil", edit_usuario_registration_path(current_usuario) %>
             </li>
             <li>
@@ -24,6 +27,9 @@
           <% else %>
             <li>
               <%= link_to "Ingresar", new_usuario_session_path %>
+            </li>
+            <li>
+              <%= link_to "Ver Evidencias", evidences_path %>
             </li>
             <li>
               <%= link_to "Registrarse", new_usuario_registration_path %>

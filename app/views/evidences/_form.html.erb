@@ -12,48 +12,48 @@
   <% end %>
 
   <!--
-  <div class="field">
+  <div class="form-group">
     <%= form.label :nombre %>
     <%= form.text_field :nombre, id: :evidence_nombre %>
   </div>
   -->
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :archivo %>
     <%= form.file_field :archivo %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :descripcion %>
-    <%= form.text_area :descripcion, id: :evidence_descripcion %>
+    <%= form.text_area :descripcion, id: :evidence_descripcion, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :universidad %>
-    <%= form.collection_select :universidad_id, Universidad.all.order("nombre"), :id, :codigo, {selected: 1} %>
+    <%= form.collection_select :universidad_id, Universidad.all.order("nombre"), :id, :codigo, {selected: 1}, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label "Facultad" %>
-    <%= form.collection_select :facultad, Facultad.all.order("nombre"), :codigo, :nombre %>
+    <%= form.collection_select :facultad, Facultad.all.order("nombre"), :codigo, :nombre, {}, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label "Escuela" %>
-    <%= form.collection_select :escuela, Escuela.all.order("nombre"), :codigo, :nombre %>
+    <%= form.collection_select :escuela, Escuela.all.order("nombre"), :codigo, :nombre, {}, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label "Carrera" %>
-    <%= form.collection_select :carrera, Carrera.all.order("nombre"), :codigo, :nombre %>
+    <%= form.collection_select :carrera, Carrera.all.order("nombre"), :codigo, :nombre, {}, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :tipo_evidencia_id %>
-    <%= form.collection_select :evidencetype_id, Evidencetype.all, :id, :tipo %>
+    <%= form.collection_select :evidencetype_id, Evidencetype.all, :id, :tipo, {}, class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.submit "Crear Evidencia", class: "btn btn-success"%>
   </div>
 <% end %>
