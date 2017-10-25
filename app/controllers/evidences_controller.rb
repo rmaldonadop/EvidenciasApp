@@ -28,6 +28,7 @@ class EvidencesController < ApplicationController
     
     tipo_ev = Evidencetype.find(evidence_params[:evidencetype_id]).codigo
     evidence_params[:codigo] = "#{auxiliar_params[:facultad]}_#{auxiliar_params[:escuela]}_#{auxiliar_params[:carrera]}_#{tipo_ev}"
+    evidence_params[:nombre] = "#{evidence_params[:codigo]}_#{evidence_params[:nombre]}.#{evidence_params[:archivo].original_filename.split(".").last.downcase}"
 
     @evidence = current_usuario.evidences.new(evidence_params)
 

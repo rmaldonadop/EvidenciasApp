@@ -10,7 +10,7 @@ class Evidence < ApplicationRecord
   def archivo=(archivo)
   	unless archivo.blank?
   		@archivo = archivo
-  		self.nombre = archivo.original_filename
+  		#self.nombre = archivo.original_filename
   		#self.extension = archivo.original_filename.split(".").last.downcase
   	end
   end 
