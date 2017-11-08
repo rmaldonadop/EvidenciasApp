@@ -42,6 +42,10 @@ gem 'omniauth', '~> 1.6', '>= 1.6.1'
 #midleware omniauth google
 gem 'omniauth-google-oauth2', '~> 0.5.2'
 
+#gem 'google-api-client', '~> 0.17.0'
+
+gem 'google_drive', '~> 2.1', '>= 2.1.6'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

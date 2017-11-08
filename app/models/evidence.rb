@@ -1,4 +1,6 @@
 class Evidence < ApplicationRecord
+  require "google_drive"
+
   belongs_to :universidad
   belongs_to :usuario
   belongs_to :evidencetype
@@ -24,8 +26,22 @@ class Evidence < ApplicationRecord
   end
 
   private
+
+  #guarda el archivo en drive
   def guardar_archivo
-  	if @archivo
+    if @archivo
+      session = GoogleDrive::Session.from_config("config.json")
+
+      #sube archivo a drive (ruta del archivo, nombre del archivo)
+      session.upload_from_file("/home/roberto/Escritorio/Protectos Rails/EvidenciasApp/public/evidencias/login.png", "#{self.codigo}_#{self.nombre}", convert: false)
+
+      @archivo = nil
+    end
+  end
+
+  #guarda el archivo localmente
+  def guardar_archivo2
+    if @archivo
   		FileUtils.mkdir_p PATH_ARCHIVOS
   		File.open(path_archivo, "wb") do |f|
   			f.write(@archivo.read)
