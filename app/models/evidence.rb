@@ -5,9 +5,9 @@ class Evidence < ApplicationRecord
   belongs_to :usuario
   belongs_to :evidencetype
 
-  after_save :guardar_archivo
+  after_save :guardar_archivo, :subir_archivo, :borrar_archivo
 
-  PATH_ARCHIVOS = File.join Rails.root, "public", "evidencias"
+  PATH_ARCHIVOS = File.join Rails.root, "tmp"
 
   def archivo=(archivo)
   	unless archivo.blank?
@@ -18,7 +18,7 @@ class Evidence < ApplicationRecord
   end 
 
   def path_archivo
-  	File.join PATH_ARCHIVOS, "#{self.codigo}_#{self.nombre}"
+  	File.join PATH_ARCHIVOS, "#{self.nombre}"
   end
 
   def tiene_archivo?
@@ -27,26 +27,26 @@ class Evidence < ApplicationRecord
 
   private
 
-  #guarda el archivo en drive
+  #guarda el archivo localmente
   def guardar_archivo
     if @archivo
-      session = GoogleDrive::Session.from_config("config.json")
-
-      #sube archivo a drive (ruta del archivo, nombre del archivo)
-      session.upload_from_file("/home/roberto/Escritorio/Protectos Rails/EvidenciasApp/public/evidencias/login.png", "#{self.codigo}_#{self.nombre}", convert: false)
-
+      FileUtils.mkdir_p PATH_ARCHIVOS
+      File.open(path_archivo, "wb") do |f|
+        f.write(@archivo.read)
+      end
       @archivo = nil
     end
   end
 
-  #guarda el archivo localmente
-  def guardar_archivo2
-    if @archivo
-  		FileUtils.mkdir_p PATH_ARCHIVOS
-  		File.open(path_archivo, "wb") do |f|
-  			f.write(@archivo.read)
-  		end
-  		@archivo = nil
-  	end
+  #sube el archivo a drive
+  def subir_archivo
+    session = GoogleDrive::Session.from_config("config.json")
+
+    #sube archivo a drive (ruta del archivo, nombre del archivo)
+    session.upload_from_file(path_archivo, "#{self.nombre}", convert: false)
+  end
+
+  def borrar_archivo
+    File.delete(path_archivo)
   end
 end
