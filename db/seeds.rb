@@ -31,3 +31,11 @@ tipo_evs = Evidencetype.create([
 	{codigo: "CTT", tipo: "Contrato"},
 	{codigo: "FOT", tipo: "Foto"}]
 )
+
+user = Usuario.new
+user.nombre = "superuser"
+user.rut = "12345678-9"
+user.email = "super@user.com"
+user.password = "superuser"
+user.password_confirmation = "superuser"
+user.save!
