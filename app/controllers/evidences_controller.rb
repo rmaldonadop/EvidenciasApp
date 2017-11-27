@@ -27,8 +27,10 @@ class EvidencesController < ApplicationController
   def create
     
     tipo_ev = Evidencetype.find(evidence_params[:evidencetype_id]).codigo
-    evidence_params[:codigo] = "#{auxiliar_params[:facultad]}_#{auxiliar_params[:escuela]}_#{auxiliar_params[:carrera]}_#{tipo_ev}"
+    sello = Sello.find(evidence_params[:sello_id]).codigo 
+    evidence_params[:codigo] = "#{auxiliar_params[:facultad]}_#{auxiliar_params[:escuela]}_#{auxiliar_params[:carrera]}_#{sello}_#{tipo_ev}"
     evidence_params[:nombre] = "#{evidence_params[:codigo]}_#{evidence_params[:nombre]}.#{evidence_params[:archivo].original_filename.split(".").last.downcase}"
+    evidence_params[:universidad_id] = 1
 
     @evidence = current_usuario.evidences.new(evidence_params)
 
@@ -76,7 +78,7 @@ class EvidencesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def evidence_params
       #params.require(:evidence).permit(:codigo, :nombre, :descripcion, :universidad_id, :usuario_id, :evidencetype_id, :archivo)
-      @evidence_params ||= params.require(:evidence).permit(:codigo, :nombre, :descripcion, :universidad_id, :usuario_id, :evidencetype_id, :archivo)
+      @evidence_params ||= params.require(:evidence).permit(:codigo, :nombre, :descripcion, :universidad_id, :usuario_id, :evidencetype_id, :sello_id, :archivo)
     end
 
     def auxiliar_params

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :sellos
   resources :evidences
   resources :evidencetypes
   resources :permisos

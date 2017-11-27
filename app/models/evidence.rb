@@ -3,6 +3,7 @@ class Evidence < ApplicationRecord
 
   belongs_to :universidad
   belongs_to :usuario
+  belongs_to :sello
   belongs_to :evidencetype
 
   after_save :guardar_archivo, :subir_archivo, :borrar_archivo

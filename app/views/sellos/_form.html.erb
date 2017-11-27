@@ -1,0 +1,27 @@
+<%= form_with(model: sello, local: true) do |form| %>
+  <% if sello.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sello.errors.count, "error") %> prohibited this sello from being saved:</h2>
+
+      <ul>
+      <% sello.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :codigo %>
+    <%= form.text_field :codigo, id: :sello_codigo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tipo %>
+    <%= form.text_field :tipo, id: :sello_tipo %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -21,8 +21,13 @@ escuelas = Escuela.create([
 
 carreras = Carrera.create([
 	{codigo: "ICCI", nombre: "Ing. Civil en Computacion", jefe_carrera: "", escuela: escuelas.first},
-	{codigo: "INDT", nombre: "Ing. Civil en Inndustrial", jefe_carrera: "", escuela: escuelas.second},
+	{codigo: "INDT", nombre: "Ing. Civil en Industrial", jefe_carrera: "", escuela: escuelas.second},
 	{codigo: "BIOM", nombre: "Biologia Marina", jefe_carrera: "", escuela: escuelas.third}]
+)
+
+sellos = Sello.create([
+	{codigo: "TEC", tipo: "Tecnologia"},
+	{codigo: "CUL", tipo: "Cultura"}]
 )
 
 tipo_evs = Evidencetype.create([
@@ -39,3 +44,11 @@ user.email = "super@user.com"
 user.password = "superuser"
 user.password_confirmation = "superuser"
 user.save!
+
+user2 = Usuario.new
+user2.nombre = "usuario"
+user2.rut = "98765432-1"
+user2.email = "user@user.com"
+user2.password = "usuario"
+user2.password_confirmation = "usuario"
+user2.save!

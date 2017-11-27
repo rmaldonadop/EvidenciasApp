@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171008211035) do
+ActiveRecord::Schema.define(version: 20171127200327) do
 
   create_table "carreras", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "codigo"
@@ -41,7 +41,9 @@ ActiveRecord::Schema.define(version: 20171008211035) do
     t.bigint "evidencetype_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "sello_id"
     t.index ["evidencetype_id"], name: "index_evidences_on_evidencetype_id"
+    t.index ["sello_id"], name: "index_evidences_on_sello_id"
     t.index ["universidad_id"], name: "index_evidences_on_universidad_id"
     t.index ["usuario_id"], name: "index_evidences_on_usuario_id"
   end
@@ -68,6 +70,13 @@ ActiveRecord::Schema.define(version: 20171008211035) do
     t.string "codigo"
     t.string "tipo"
     t.string "descripcion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sellos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "codigo"
+    t.string "tipo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -104,6 +113,7 @@ ActiveRecord::Schema.define(version: 20171008211035) do
   add_foreign_key "carreras", "escuelas"
   add_foreign_key "escuelas", "facultads"
   add_foreign_key "evidences", "evidencetypes"
+  add_foreign_key "evidences", "sellos"
   add_foreign_key "evidences", "universidads"
   add_foreign_key "evidences", "usuarios"
   add_foreign_key "facultads", "universidads"

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Codigo:</strong>
+  <%= @sello.codigo %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @sello.tipo %>
+</p>
+
+<%= link_to 'Edit', edit_sello_path(@sello) %> |
+<%= link_to 'Back', sellos_path %>

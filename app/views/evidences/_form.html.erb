@@ -22,16 +22,6 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :descripcion %>
-    <%= form.text_area :descripcion, id: :evidence_descripcion, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :universidad %>
-    <%= form.collection_select :universidad_id, Universidad.all.order("nombre"), :id, :codigo, {selected: 1}, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
     <%= form.label "Facultad" %>
     <%= form.collection_select :facultad, Facultad.all.order("nombre"), :codigo, :nombre, {}, class: "form-control" %>
   </div>
@@ -47,8 +37,18 @@
   </div>
 
   <div class="form-group">
+    <%= form.label :sello_id %>
+    <%= form.collection_select :sello_id, Sello.all, :id, :tipo, {}, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
     <%= form.label :tipo_evidencia_id %>
     <%= form.collection_select :evidencetype_id, Evidencetype.all, :id, :tipo, {}, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :descripcion %>
+    <%= form.text_area :descripcion, id: :evidence_descripcion, class: "form-control" %>
   </div>
 
   <div class="form-group">

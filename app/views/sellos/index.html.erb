@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sellos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Codigo</th>
+      <th>Tipo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sellos.each do |sello| %>
+      <tr>
+        <td><%= sello.codigo %></td>
+        <td><%= sello.tipo %></td>
+        <td><%= link_to 'Show', sello %></td>
+        <td><%= link_to 'Edit', edit_sello_path(sello) %></td>
+        <td><%= link_to 'Destroy', sello, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sello', new_sello_path %>
