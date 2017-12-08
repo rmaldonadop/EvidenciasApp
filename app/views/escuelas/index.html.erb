@@ -19,10 +19,10 @@
         <td><%= escuela.codigo %></td>
         <td><%= escuela.nombre %></td>
         <td><%= escuela.director %></td>
-        <td><%= escuela.facultad %></td>
-        <td><%= link_to 'Show', escuela %></td>
-        <td><%= link_to 'Edit', edit_escuela_path(escuela) %></td>
-        <td><%= link_to 'Destroy', escuela, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= escuela.facultad.nombre %></td>
+        <td><%= link_to 'Ver', escuela %></td>
+        <td><%= link_to 'Editar', edit_escuela_path(escuela) %></td>
+        <td><%= link_to 'Borrar', escuela, method: :delete, data: { confirm: '¿Esta Seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Escuela', new_escuela_path %>
+<%= link_to 'Nueva Escuela', new_escuela_path %>

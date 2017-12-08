@@ -20,9 +20,9 @@
         <td><%= universidad.nombre %></td>
         <td><%= universidad.direccion %></td>
         <td><%= universidad.casa_matriz %></td>
-        <td><%= link_to 'Show', universidad %></td>
-        <td><%= link_to 'Edit', edit_universidad_path(universidad) %></td>
-        <td><%= link_to 'Destroy', universidad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', universidad %></td>
+        <td><%= link_to 'Editar', edit_universidad_path(universidad) %></td>
+        <td><%= link_to 'Borrar', universidad, method: :delete, data: { confirm: '¿Esta Seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Universidad', new_universidad_path %>
+<%= link_to 'Nueva Universidad', new_universidad_path %>

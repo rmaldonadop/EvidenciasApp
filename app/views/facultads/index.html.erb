@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Facultads</h1>
+<h1>Facultades</h1>
 
 <table>
   <thead>
@@ -19,10 +19,10 @@
         <td><%= facultad.codigo %></td>
         <td><%= facultad.nombre %></td>
         <td><%= facultad.direccion %></td>
-        <td><%= facultad.universidad %></td>
-        <td><%= link_to 'Show', facultad %></td>
-        <td><%= link_to 'Edit', edit_facultad_path(facultad) %></td>
-        <td><%= link_to 'Destroy', facultad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= facultad.universidad.codigo %></td>
+        <td><%= link_to 'Ver', facultad %></td>
+        <td><%= link_to 'Editar', edit_facultad_path(facultad) %></td>
+        <td><%= link_to 'Borrar', facultad, method: :delete, data: { confirm: '¿Esta Seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Facultad', new_facultad_path %>
+<%= link_to 'Nueva Facultad', new_facultad_path %>

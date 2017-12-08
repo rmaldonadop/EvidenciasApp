@@ -19,10 +19,10 @@
         <td><%= carrera.codigo %></td>
         <td><%= carrera.nombre %></td>
         <td><%= carrera.jefe_carrera %></td>
-        <td><%= carrera.escuela %></td>
-        <td><%= link_to 'Show', carrera %></td>
-        <td><%= link_to 'Edit', edit_carrera_path(carrera) %></td>
-        <td><%= link_to 'Destroy', carrera, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= carrera.escuela.nombre %></td>
+        <td><%= link_to 'Ver', carrera %></td>
+        <td><%= link_to 'Editar', edit_carrera_path(carrera) %></td>
+        <td><%= link_to 'Borrar', carrera, method: :delete, data: { confirm: '¿Esta Seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Carrera', new_carrera_path %>
+<%= link_to 'Nueva Carrera', new_carrera_path %>

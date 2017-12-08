@@ -26,6 +26,26 @@ class Evidence < ApplicationRecord
   	File.exists? path_archivo
   end
 
+  def get_facultad
+    self.codigo.to_s.split('_')[0]
+  end
+
+  def get_escuela
+    self.codigo.to_s.split('_')[1]
+  end
+
+  def get_carrera
+    self.codigo.to_s.split('_')[2]
+  end
+
+  def get_sello
+    self.codigo.to_s.split('_')[3]
+  end
+
+  def get_tipoev
+    self.codigo.to_s.split('_')[4]
+  end
+
   private
 
   #guarda el archivo localmente
@@ -50,4 +70,5 @@ class Evidence < ApplicationRecord
   def borrar_archivo
     File.delete(path_archivo)
   end
+
 end

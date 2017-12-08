@@ -16,19 +16,19 @@
 </p>
 
 <p>
-  <strong>Universidad:</strong>
-  <%= @evidence.universidad %>
+  <strong>Creado por:</strong>
+  <%= @evidence.usuario.nombre %>
 </p>
 
 <p>
-  <strong>Usuario:</strong>
-  <%= @evidence.usuario %>
+  <strong>Rut:</strong>
+  <%= @evidence.usuario.rut %>
 </p>
 
 <p>
-  <strong>Evidencetype:</strong>
-  <%= @evidence.evidencetype %>
+  <strong>Tipo de Evidencia:</strong>
+  <%= @evidence.evidencetype.tipo %>
 </p>
 
-<%= link_to 'Edit', edit_evidence_path(@evidence) %> |
-<%= link_to 'Back', evidences_path %>
+<%= link_to 'Editar', edit_evidence_path(@evidence) %> |
+<%= link_to 'Volver', evidences_path %>

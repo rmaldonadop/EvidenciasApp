@@ -17,8 +17,8 @@
 
 <p>
   <strong>Universidad:</strong>
-  <%= @facultad.universidad %>
+  <%= @facultad.universidad.codigo %>
 </p>
 
-<%= link_to 'Edit', edit_facultad_path(@facultad) %> |
-<%= link_to 'Back', facultads_path %>
+<%= link_to 'Editar', edit_facultad_path(@facultad) %> |
+<%= link_to 'Volver', facultads_path %>

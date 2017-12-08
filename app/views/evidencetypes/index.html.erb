@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Evidencetypes</h1>
+<h1>Tipos de Evidencias</h1>
 
 <table>
   <thead>
@@ -16,9 +16,9 @@
       <tr>
         <td><%= evidencetype.codigo %></td>
         <td><%= evidencetype.tipo %></td>
-        <td><%= link_to 'Show', evidencetype %></td>
-        <td><%= link_to 'Edit', edit_evidencetype_path(evidencetype) %></td>
-        <td><%= link_to 'Destroy', evidencetype, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', evidencetype %></td>
+        <td><%= link_to 'Editar', edit_evidencetype_path(evidencetype) %></td>
+        <td><%= link_to 'Borrar', evidencetype, method: :delete, data: { confirm: '¿Esta Seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Evidencetype', new_evidencetype_path %>
+<%= link_to 'Nuevo Tipo', new_evidencetype_path %>

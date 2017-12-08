@@ -17,8 +17,8 @@
 
 <p>
   <strong>Facultad:</strong>
-  <%= @escuela.facultad %>
+  <%= @escuela.facultad.nombre %>
 </p>
 
-<%= link_to 'Edit', edit_escuela_path(@escuela) %> |
-<%= link_to 'Back', escuelas_path %>
+<%= link_to 'Editar', edit_escuela_path(@escuela) %> |
+<%= link_to 'Volver', escuelas_path %>

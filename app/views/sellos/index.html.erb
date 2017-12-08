@@ -16,9 +16,9 @@
       <tr>
         <td><%= sello.codigo %></td>
         <td><%= sello.tipo %></td>
-        <td><%= link_to 'Show', sello %></td>
-        <td><%= link_to 'Edit', edit_sello_path(sello) %></td>
-        <td><%= link_to 'Destroy', sello, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', sello %></td>
+        <td><%= link_to 'Editar', edit_sello_path(sello) %></td>
+        <td><%= link_to 'Borrar', sello, method: :delete, data: { confirm: '¿Esta Seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Sello', new_sello_path %>
+<%= link_to 'Nuevo Sello', new_sello_path %>
