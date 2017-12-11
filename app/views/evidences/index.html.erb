@@ -1,36 +1,84 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Evidencias</h1>
+<div class="row">
+  <h1>Evidencias</h1>
+  <br>
 
-<table>
-  <thead>
-    <tr>
-      <th>Codigo</th>
-      <th>Nombre</th>
-      <th>Descripcion</th>
-      <th>Creado por</th>
-      <th>Rut</th>
-      <th>Evidencetype</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <%= form_tag(evidences_path, method: :get) do |form| %>
+  <label for="term">Buscar por:</label>
+  <input type="text" name="term" class="form-group">
+  <%= submit_tag "Buscar", nombre: nil, class: "btn btn-success" %>
+  <% end %>
+</div>
 
-  <tbody>
-    <% @evidences.each do |evidence| %>
+<%= form_tag(evidences_path, method: :get) do %><br>
+  <div class="row">
+    <label for="term2">Filtrar por:</label>
+    <%= hidden_field_tag :term2, "" %>
+    <table class="table table-condensed" style="width: 60%">
+      <thead>
+        <tr>
+          <th style="width: 10%">Facultad</th>
+          <th style="width: 10%">Escuela</th>
+          <th style="width: 10%">Carrera</th>
+          <th style="width: 10%">Sello</th>
+          <th style="width: 10%">Tipo</th>
+          <th colspan="1" style="width: 10%"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+            <tr>
+              <td><%= collection_select :facultad, :codigo, Facultad.all.order("nombre"), :codigo, :nombre, {:prompt => 'Cualquiera'}, class: "form-control" %></td>
+              <td><%= collection_select :escuela, :codigo, Escuela.all.order("nombre"), :codigo, :nombre, {:prompt => 'Cualquiera'}, class: "form-control" %></td>
+              <td><%= collection_select :carrera, :codigo, Carrera.all.order("nombre"), :codigo, :nombre, {:prompt => 'Cualquiera'}, class: "form-control" %></td>
+              <td><%= collection_select :sello, :codigo, Sello.all, :codigo, :tipo, {:prompt => 'Cualquiera'}, class: "form-control" %></td>
+              <td><%= collection_select :evidencetype, :codigo, Evidencetype.all, :codigo, :tipo, {:prompt => 'Cualquiera'}, class: "form-control" %></td>
+              <td><%= submit_tag "Filtrar", nombre: nil, class: "btn btn-success" %></td>
+            </tr>
+      </tbody>
+    </table>
+  </div>
+<% end %>
+
+
+<div class = "row">
+  <h2>Listado de Evidencias</h2>
+  <table class="table table-condensed table-hover" style="width: 100%">
+    <thead>
       <tr>
-        <td><%= evidence.codigo %></td>
-        <td><%= evidence.nombre %></td>
-        <td><%= evidence.descripcion %></td>
-        <td><%= evidence.usuario.nombre %></td>
-        <td><%= evidence.usuario.rut %></td>
-        <td><%= evidence.evidencetype.tipo %></td>
-        <td><%= link_to 'Ver', evidence %></td>
-        <td><%= link_to 'Editar', edit_evidence_path(evidence) %></td>
-        <td><%= link_to 'Borrar', evidence, method: :delete, data: { confirm: '¿Esta Seguro?' } %></td>
+        <th style="width: 15%">Codigo</th>
+        <th style="width: 15%">Nombre</th>
+        <th style="width: 20%">Descripcion</th>
+        <th style="width: 10%">Creado por</th>
+        <th style="width: 10%">Rut</th>
+        <th style="width: 10%">Tipo de Evidencia</th>
+        <th style="width: 10%">Creado en</th>
+        <th colspan="4" style="width: 10%"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% if @evidences != nil %>
+        <% @evidences.each do |evidence| %>
+          <tr>
+            <td><%= evidence.codigo %></td>
+            <td><%= evidence.nombre %></td>
+            <td><%= evidence.descripcion %></td>
+            <td><%= evidence.usuario.nombre %></td>
+            <td><%= evidence.usuario.rut %></td>
+            <td><%= evidence.evidencetype.tipo %></td>
+            <td><%= evidence.evidencetype.created_at %></td>
+            <td><%= link_to 'Ver', evidence %></td>
+            <td><%= link_to 'Editar', edit_evidence_path(evidence) %></td>
+            <td><%= link_to 'Borrar', evidence, method: :delete, data: { confirm: '¿Esta Seguro?' } %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
 
 <br>
 

@@ -16,7 +16,7 @@ facultades = Facultad.create([
 escuelas = Escuela.create([
 	{codigo: "INF", nombre: "Escuela de Informatica", director: "", facultad: facultades.first},
 	{codigo: "IND", nombre: "Escuela de Industria", director: "", facultad: facultades.first},
-	{codigo: "INF", nombre: "Escuela de Biologia", director: "", facultad: facultades.second}]
+	{codigo: "BIO", nombre: "Escuela de Biologia", director: "", facultad: facultades.second}]
 )
 
 carreras = Carrera.create([

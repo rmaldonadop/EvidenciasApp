@@ -5,7 +5,20 @@ class EvidencesController < ApplicationController
   # GET /evidences
   # GET /evidences.json
   def index
-    @evidences = Evidence.all
+    @evidences = if params[:term]
+      Evidence.search(params[:term])
+    else
+      if params[:term2] == nil
+        Evidence.search(params[:term])
+      else
+        @evidences = Evidence.all
+        @evidences = @evidences.search_cod(params[:facultad][:codigo])
+        @evidences = @evidences.search_cod(params[:escuela][:codigo])
+        @evidences = @evidences.search_cod(params[:carrera][:codigo])
+        @evidences = @evidences.search_cod(params[:sello][:codigo])
+        @evidences = @evidences.search_cod(params[:evidencetype][:codigo])
+      end
+    end
   end
 
   # GET /evidences/1
@@ -69,6 +82,7 @@ class EvidencesController < ApplicationController
     end
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_evidence
@@ -78,7 +92,7 @@ class EvidencesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def evidence_params
       #params.require(:evidence).permit(:codigo, :nombre, :descripcion, :universidad_id, :usuario_id, :evidencetype_id, :archivo)
-      @evidence_params ||= params.require(:evidence).permit(:codigo, :nombre, :descripcion, :universidad_id, :usuario_id, :evidencetype_id, :sello_id, :archivo)
+      @evidence_params ||= params.require(:evidence).permit(:codigo, :nombre, :descripcion, :universidad_id, :usuario_id, :evidencetype_id, :sello_id, :archivo, :term)
     end
 
     def auxiliar_params

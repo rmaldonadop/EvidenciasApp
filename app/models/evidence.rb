@@ -46,6 +46,52 @@ class Evidence < ApplicationRecord
     self.codigo.to_s.split('_')[4]
   end
 
+  def self.search(term)
+    if term
+      where('nombre LIKE ?', "%#{term}%")
+    else
+      all
+    end
+  end
+
+  def self.search_cod(term)
+    if term
+      where('codigo LIKE ?', "%#{term}%")
+    else
+      all
+    end
+  end
+
+  def self.facultad(term)
+      ev = all
+      ev = ev.where('codigo LIKE ?', "%#{term}%")
+      return ev 
+  end
+
+  def self.escuela(term)
+      ev = all
+      ev = ev.where('codigo LIKE ?', "%#{term}%")
+      return ev 
+  end
+
+  def self.carrera(term)
+      ev = all
+      ev = ev.where('codigo LIKE ?', "%#{term}%")
+      return ev 
+  end
+
+  def self.sello(term)
+      ev = all
+      ev = ev.where('codigo LIKE ?', "%#{term}%")
+      return ev 
+  end
+
+  def self.evidencetype(term)
+      ev = all
+      ev = ev.where('codigo LIKE ?', "%#{term}%")
+      return ev 
+  end
+
   private
 
   #guarda el archivo localmente
