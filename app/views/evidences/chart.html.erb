@@ -1,0 +1,1 @@
+<%= line_chart Evidence.group_by_month_of_year(:created_at).count.map{|k,v| [I18n.t("date.month_names"), v]} %>

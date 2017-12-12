@@ -42,9 +42,13 @@ gem 'omniauth', '~> 1.6', '>= 1.6.1'
 #midleware omniauth google
 gem 'omniauth-google-oauth2', '~> 0.5.2'
 
-#gem 'google-api-client', '~> 0.17.0'
-
+#gema para en control de archivos con google drive
 gem 'google_drive', '~> 2.1', '>= 2.1.6'
+
+#gemas para graficos
+gem 'chartkick', '~> 2.2', '>= 2.2.5'
+gem 'groupdate', '~> 3.2'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

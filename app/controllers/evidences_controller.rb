@@ -19,6 +19,10 @@ class EvidencesController < ApplicationController
         @evidences = @evidences.search_cod(params[:evidencetype][:codigo])
       end
     end
+
+    respond_to do |format|
+      format.html
+    end
   end
 
   # GET /evidences/1

@@ -52,3 +52,7 @@ user2.email = "user@user.com"
 user2.password = "usuario"
 user2.password_confirmation = "usuario"
 user2.save!
+
+#1000.times do
+#  new_item = Evidence.create({nombre: "item", universidad: universidades.first, usuario: user, sello: sellos.first, evidencetype: tipo_evs.first, created_at: rand(3.years.ago..Time.now)})
+#end
