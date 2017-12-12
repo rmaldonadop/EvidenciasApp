@@ -71,8 +71,12 @@
             <td><%= evidence.evidencetype.tipo %></td>
             <td><%= evidence.evidencetype.created_at %></td>
             <td><%= link_to 'Ver', evidence %></td>
-            <td><%= link_to 'Editar', edit_evidence_path(evidence) %></td>
-            <td><%= link_to 'Borrar', evidence, method: :delete, data: { confirm: '¿Esta Seguro?' } %></td>
+            <% if can? :update, @evidence %>
+              <td><%= link_to 'Editar', edit_evidence_path(evidence) %></td>
+            <% end %>
+            <% if can? :destroy, @evidence %>
+              <td><%= link_to 'Borrar', evidence, method: :delete, data: { confirm: '¿Esta Seguro?' } %></td>
+            <% end %>
           </tr>
         <% end %>
       <% end %>

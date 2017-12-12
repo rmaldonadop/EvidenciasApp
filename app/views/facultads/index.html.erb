@@ -22,7 +22,9 @@
         <td><%= facultad.universidad.codigo %></td>
         <td><%= link_to 'Ver', facultad %></td>
         <td><%= link_to 'Editar', edit_facultad_path(facultad) %></td>
-        <td><%= link_to 'Borrar', facultad, method: :delete, data: { confirm: '¿Esta Seguro?' } %></td>
+        <% if can? :destroy, @facultad %>
+          <td><%= link_to 'Borrar', facultad, method: :delete, data: { confirm: '¿Esta Seguro?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

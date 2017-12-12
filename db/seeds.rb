@@ -43,15 +43,27 @@ user.rut = "12345678-9"
 user.email = "super@user.com"
 user.password = "superuser"
 user.password_confirmation = "superuser"
+user.rol_super = true;
+user.rol_usuario = false;
 user.save!
 
 user2 = Usuario.new
-user2.nombre = "usuario"
-user2.rut = "98765432-1"
-user2.email = "user@user.com"
-user2.password = "usuario"
-user2.password_confirmation = "usuario"
+user2.nombre = "admin"
+user2.rut = "12345678-0"
+user2.email = "admin@admin.com"
+user2.password = "admin1"
+user2.password_confirmation = "admin1"
+user2.rol_admin = true;
+user2.rol_usuario = false;
 user2.save!
+
+user3 = Usuario.new
+user3.nombre = "usuario"
+user3.rut = "98765432-1"
+user3.email = "user@user.com"
+user3.password = "usuario"
+user3.password_confirmation = "usuario"
+user3.save!
 
 #1000.times do
 #  new_item = Evidence.create({nombre: "item", universidad: universidades.first, usuario: user, sello: sellos.first, evidencetype: tipo_evs.first, created_at: rand(3.years.ago..Time.now)})

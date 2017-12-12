@@ -14,4 +14,5 @@
 //= require turbolinks
 //= require Chart.bundle
 //= require chartkick
+//= require toastr
 //= require_tree .

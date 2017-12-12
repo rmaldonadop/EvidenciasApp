@@ -18,7 +18,9 @@
         <td><%= evidencetype.tipo %></td>
         <td><%= link_to 'Ver', evidencetype %></td>
         <td><%= link_to 'Editar', edit_evidencetype_path(evidencetype) %></td>
-        <td><%= link_to 'Borrar', evidencetype, method: :delete, data: { confirm: '¿Esta Seguro?' } %></td>
+        <% if can? :destroy, @evidencetype %>
+          <td><%= link_to 'Borrar', evidencetype, method: :delete, data: { confirm: '¿Esta Seguro?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

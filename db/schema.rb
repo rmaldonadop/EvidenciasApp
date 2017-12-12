@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171127200327) do
+ActiveRecord::Schema.define(version: 20171212044223) do
 
   create_table "carreras", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "codigo"
@@ -107,6 +107,9 @@ ActiveRecord::Schema.define(version: 20171127200327) do
     t.string "permiso"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "rol_super", default: false
+    t.boolean "rol_admin", default: false
+    t.boolean "rol_usuario", default: true
     t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
   end
 

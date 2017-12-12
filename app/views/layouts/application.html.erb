@@ -9,31 +9,46 @@
   </head>
 
   <body>
-  	<p class="notice" style="<%= "display:none;" if notice.nil? %>" ><%= notice %></p>
-  	<p class="alert" style="<%= "display:none;" if alert.nil? %>" ><%= alert %></p>
+    <p class="notice" style="<%= "display:none;" if notice.nil? %>" ><%= notice %></p>
+    <p class="alert" style="<%= "display:none;" if alert.nil? %>" ><%= alert %></p>
     <header>
       <nav>
         <ul class = "nav nav-tabs">
           <% if usuario_signed_in? %>
-            <li>
-              <%= link_to "Ver Evidencias", evidences_path %>
-            </li>
-            <li>
-              <%= link_to "Editar Perfil", edit_usuario_registration_path(current_usuario) %>
-            </li>
-            <li>
-              <%= link_to "Cerrar Sesion", destroy_usuario_session_path, method: :delete %>
-            </li>
-          <% else %>
-            <li>
-              <%= link_to "Ingresar", new_usuario_session_path %>
-            </li>
-            <li>
-              <%= link_to "Ver Evidencias", evidences_path %>
-            </li>
-            <li>
-              <%= link_to "Registrarse", new_usuario_registration_path %>
-            </li>
+            <% if current_usuario.rol_super? || current_usuario.rol_admin? %>
+              <li>
+                <%= link_to "Facultades", facultads_path %>
+              </li>
+              <li>
+                <%= link_to "Escuelas", escuelas_path %>
+              </li>
+              <li>
+                <%= link_to "Carreras", carreras_path %>
+              </li>
+              <li>
+                <%= link_to "Evidencias", evidences_path %>
+              </li>
+              <li>
+                <%= link_to "Tipos de Evidencias", evidencetypes_path %>
+              </li>
+              <li>
+                <%= link_to "Sellos", sellos_path %>
+              </li>
+              <li>
+                <%= link_to "Editar Perfil", edit_usuario_registration_path(current_usuario) %>
+              </li>
+              <li>
+                <%= link_to "Cerrar Sesion", destroy_usuario_session_path, method: :delete %>
+              </li>
+            <% end %>
+            
+            <% if current_usuario.rol_usuario? %>
+              <li>
+                <%= link_to "Evidencias", evidences_path %>
+              </li>
+              <li>
+                <%= link_to "Cerrar Sesion", destroy_usuario_session_path, method: :delete %>
+            <% end %>
           <% end %>
         </ul>
       </nav>

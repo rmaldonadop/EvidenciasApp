@@ -35,6 +35,8 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 
 #gema para control de login
 gem 'devise', '~> 4.3'
+gem 'cancancan', '~> 2.1', '>= 2.1.2'
+gem 'toastr-rails'
 
 #instalacion de omniath
 gem 'omniauth', '~> 1.6', '>= 1.6.1'

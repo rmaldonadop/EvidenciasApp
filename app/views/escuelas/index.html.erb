@@ -22,7 +22,9 @@
         <td><%= escuela.facultad.nombre %></td>
         <td><%= link_to 'Ver', escuela %></td>
         <td><%= link_to 'Editar', edit_escuela_path(escuela) %></td>
-        <td><%= link_to 'Borrar', escuela, method: :delete, data: { confirm: '¿Esta Seguro?' } %></td>
+        <% if can? :destroy, @escuela %>
+          <td><%= link_to 'Borrar', escuela, method: :delete, data: { confirm: '¿Esta Seguro?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
