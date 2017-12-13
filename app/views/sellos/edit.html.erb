@@ -1,6 +1,9 @@
-<h1>Editando Sello</h1>
-
-<%= render 'form', sello: @sello %>
+<div class="row">
+	<h1>Editando Sello</h1>
+	<div class="row col-md-3">
+		<%= render 'form', sello: @sello %>
+	</div>
+</div>
 
 <%= link_to 'Ver', @sello %> |
 <%= link_to 'Volver', sellos_path %>

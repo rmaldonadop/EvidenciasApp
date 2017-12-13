@@ -1,6 +1,10 @@
-<h1>Editando Universidad</h1>
+<div class="row">
+	<h1>Editando Universidad</h1>
+	<div class="row col-md-3">
+		<%= render 'form', universidad: @universidad %>
+	</div>
+</div>
 
-<%= render 'form', universidad: @universidad %>
 
 <%= link_to 'Ver', @universidad %> |
 <%= link_to 'Volver', universidads_path %>

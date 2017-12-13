@@ -1,6 +1,9 @@
-<h1>Editando Evidencia</h1>
-
-<%= render 'form', evidence: @evidence %>
+<div class="row">
+	<h1>Editando Evidencia</h1>
+	<div class="row col-md-3">
+		<%= render 'form', evidence: @evidence %>
+	</div>
+</div>
 
 <%= link_to 'Ver', @evidence %> |
 <%= link_to 'Volver', evidences_path %>

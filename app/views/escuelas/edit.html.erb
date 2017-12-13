@@ -1,6 +1,9 @@
-<h1>Editando Escuela</h1>
-
-<%= render 'form', escuela: @escuela %>
+<div class="row">
+	<h1>Editando Escuela</h1>
+	<div class="row col-md-3">
+		<%= render 'form', escuela: @escuela %>
+	</div>
+</div>
 
 <%= link_to 'Ver', @escuela %> |
 <%= link_to 'Volver', escuelas_path %>

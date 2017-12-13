@@ -1,31 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Sellos</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Codigo</th>
-      <th>Tipo</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @sellos.each do |sello| %>
+<div class="row">
+  <h1>Sellos</h1>
+  <h2>Listado de Sellos</h2>
+  <table class="table table-condensed table-hover" style="width: 36%">
+    <thead>
       <tr>
-        <td><%= sello.codigo %></td>
-        <td><%= sello.tipo %></td>
-        <td><%= link_to 'Ver', sello %></td>
-        <td><%= link_to 'Editar', edit_sello_path(sello) %></td>
-        <% if can? :destroy, @sello %>
-          <td><%= link_to 'Borrar', sello, method: :delete, data: { confirm: '¿Esta Seguro?' } %></td>
-        <% end %>
+        <th style="width: 15%">Codigo</th>
+        <th style="width: 15%">Tipo</th>
+        <th colspan="3" style="width: 15%"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
+    <tbody>
+      <% @sellos.each do |sello| %>
+        <tr>
+          <td><%= sello.codigo %></td>
+          <td><%= sello.tipo %></td>
+          <td><%= link_to 'Ver', sello %></td>
+          <td><%= link_to 'Editar', edit_sello_path(sello) %></td>
+          <% if can? :destroy, @sello %>
+            <td><%= link_to 'Borrar', sello, method: :delete, data: { confirm: '¿Esta Seguro?' } %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <%= link_to 'Nuevo Sello', new_sello_path %>

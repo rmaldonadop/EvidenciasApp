@@ -1,35 +1,34 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Facultades</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Codigo</th>
-      <th>Nombre</th>
-      <th>Direccion</th>
-      <th>Universidad</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @facultads.each do |facultad| %>
+<div class="row">
+  <h1>Facultades</h1>
+  <h2>Listado de Facultades</h2>
+  <table class="table table-condensed table-hover" style="width: 60%">
+    <thead>
       <tr>
-        <td><%= facultad.codigo %></td>
-        <td><%= facultad.nombre %></td>
-        <td><%= facultad.direccion %></td>
-        <td><%= facultad.universidad.codigo %></td>
-        <td><%= link_to 'Ver', facultad %></td>
-        <td><%= link_to 'Editar', edit_facultad_path(facultad) %></td>
-        <% if can? :destroy, @facultad %>
-          <td><%= link_to 'Borrar', facultad, method: :delete, data: { confirm: '¿Esta Seguro?' } %></td>
-        <% end %>
+        <th style="width: 15%">Codigo</th>
+        <th style="width: 15%">Nombre</th>
+        <th style="width: 15%">Direccion</th>
+        <th style="width: 15%">Universidad</th>
+        <th colspan="3" style="width: 15%"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
+    <tbody>
+      <% @facultads.each do |facultad| %>
+        <tr>
+          <td><%= facultad.codigo %></td>
+          <td><%= facultad.nombre %></td>
+          <td><%= facultad.direccion %></td>
+          <td><%= facultad.universidad.codigo %></td>
+          <td><%= link_to 'Ver', facultad %></td>
+          <td><%= link_to 'Editar', edit_facultad_path(facultad) %></td>
+          <% if can? :destroy, @facultad %>
+            <td><%= link_to 'Borrar', facultad, method: :delete, data: { confirm: '¿Esta Seguro?' } %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <%= link_to 'Nueva Facultad', new_facultad_path %>

@@ -62,36 +62,6 @@ class Evidence < ApplicationRecord
     end
   end
 
-  def self.facultad(term)
-      ev = all
-      ev = ev.where('codigo LIKE ?', "%#{term}%")
-      return ev 
-  end
-
-  def self.escuela(term)
-      ev = all
-      ev = ev.where('codigo LIKE ?', "%#{term}%")
-      return ev 
-  end
-
-  def self.carrera(term)
-      ev = all
-      ev = ev.where('codigo LIKE ?', "%#{term}%")
-      return ev 
-  end
-
-  def self.sello(term)
-      ev = all
-      ev = ev.where('codigo LIKE ?', "%#{term}%")
-      return ev 
-  end
-
-  def self.evidencetype(term)
-      ev = all
-      ev = ev.where('codigo LIKE ?', "%#{term}%")
-      return ev 
-  end
-
   private
 
   #guarda el archivo localmente

@@ -1,33 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Universidads</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Codigo</th>
-      <th>Nombre</th>
-      <th>Direccion</th>
-      <th>Casa matriz</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @universidads.each do |universidad| %>
+<div>
+  <h1>Universidad</h1>
+  <table>
+    <table class="table table-condensed table-hover" style="width: 60%">
       <tr>
-        <td><%= universidad.codigo %></td>
-        <td><%= universidad.nombre %></td>
-        <td><%= universidad.direccion %></td>
-        <td><%= universidad.casa_matriz %></td>
-        <td><%= link_to 'Ver', universidad %></td>
-        <td><%= link_to 'Editar', edit_universidad_path(universidad) %></td>
-        <td><%= link_to 'Borrar', universidad, method: :delete, data: { confirm: '¿Esta Seguro?' } %></td>
+        <th style="width: 15%">Codigo</th>
+        <th style="width: 15%">Nombre</th>
+        <th style="width: 15%">Direccion</th>
+        <th style="width: 15%">Casa matriz</th>
+        <th colspan="3" style="width: 15%"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
+    <tbody>
+      <% @universidads.each do |universidad| %>
+        <tr>
+          <td><%= universidad.codigo %></td>
+          <td><%= universidad.nombre %></td>
+          <td><%= universidad.direccion %></td>
+          <td><%= universidad.casa_matriz %></td>
+          <td><%= link_to 'Ver', universidad %></td>
+          <td><%= link_to 'Editar', edit_universidad_path(universidad) %></td>
+          <td><%= link_to 'Borrar', universidad, method: :delete, data: { confirm: '¿Esta Seguro?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <%= link_to 'Nueva Universidad', new_universidad_path %>

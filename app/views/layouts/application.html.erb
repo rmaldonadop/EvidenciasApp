@@ -12,46 +12,35 @@
     <p class="notice" style="<%= "display:none;" if notice.nil? %>" ><%= notice %></p>
     <p class="alert" style="<%= "display:none;" if alert.nil? %>" ><%= alert %></p>
     <header>
-      <nav>
-        <ul class = "nav nav-tabs">
-          <% if usuario_signed_in? %>
-            <% if current_usuario.rol_super? || current_usuario.rol_admin? %>
-              <li>
-                <%= link_to "Facultades", facultads_path %>
-              </li>
-              <li>
-                <%= link_to "Escuelas", escuelas_path %>
-              </li>
-              <li>
-                <%= link_to "Carreras", carreras_path %>
-              </li>
-              <li>
-                <%= link_to "Evidencias", evidences_path %>
-              </li>
-              <li>
-                <%= link_to "Tipos de Evidencias", evidencetypes_path %>
-              </li>
-              <li>
-                <%= link_to "Sellos", sellos_path %>
-              </li>
-              <li>
-                <%= link_to "Editar Perfil", edit_usuario_registration_path(current_usuario) %>
-              </li>
-              <li>
-                <%= link_to "Cerrar Sesion", destroy_usuario_session_path, method: :delete %>
-              </li>
-            <% end %>
-            
-            <% if current_usuario.rol_usuario? %>
-              <li>
-                <%= link_to "Evidencias", evidences_path %>
-              </li>
-              <li>
-                <%= link_to "Cerrar Sesion", destroy_usuario_session_path, method: :delete %>
-            <% end %>
-          <% end %>
-        </ul>
-      </nav>
+      
+      <% if usuario_signed_in? %>
+        <nav class="row navbar navbar-inverse">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand">EvidenciasApp</a>
+            </div>
+            <ul class="nav navbar-nav">
+              <% if current_usuario.rol_super? || current_usuario.rol_admin? %>
+                <li> <%= link_to "Facultades", facultads_path %> </li>
+                <li> <%= link_to "Escuelas", escuelas_path %> </li>
+                <li> <%= link_to "Carreras", carreras_path %> </li>
+                <li> <%= link_to "Evidencias", evidences_path %> </li>
+                <li> <%= link_to "Tipos de Evidencias", evidencetypes_path %> </li>
+                <li> <%= link_to "Sellos", sellos_path %> </li>
+                <li> <%= link_to "Editar Perfil", edit_usuario_registration_path(current_usuario) %> </li>
+              <% end %>
+
+              <% if current_usuario.rol_usuario? %>
+                <li> <%= link_to "Evidencias", evidences_path %> </li>
+              <% end %>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li> <a href="/usuarios/sign_out" data-method="delete"><span class="glyphicon glyphicon-log-out"></span> Cerrar Sesion</a> </li>
+            </ul>
+          </div>
+        </nav>
+      <% end %>
+
     </header>
     <%= yield %>
   </body>

@@ -1,6 +1,9 @@
-<h1>Editando Carrera</h1>
-
-<%= render 'form', carrera: @carrera %>
+<div class="row">
+	<h1>Editando Carrera</h1>
+	<div class="row col-md-3">
+		<%= render 'form', carrera: @carrera %>
+	</div>
+</div>
 
 <%= link_to 'Ver', @carrera %> |
 <%= link_to 'Volver', carreras_path %>
