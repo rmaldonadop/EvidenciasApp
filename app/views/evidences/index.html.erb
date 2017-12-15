@@ -42,7 +42,6 @@
   </div>
 <% end %>
 
-
 <div class = "row">
   <h2>Listado de Evidencias</h2>
   <table class="table table-condensed table-hover" style="width: 100%">
@@ -59,7 +58,7 @@
       </tr>
     </thead>
 
-    <tbody>
+    <tbody id="myTable">
       <% if @evidences != nil %>
         <% @evidences.each do |evidence| %>
           <tr>
@@ -69,7 +68,7 @@
             <td><%= evidence.usuario.nombre %></td>
             <td><%= evidence.usuario.rut %></td>
             <td><%= evidence.evidencetype.tipo %></td>
-            <td><%= evidence.evidencetype.created_at %></td>
+            <td><%= evidence.created_at %></td>
             <td><%= link_to 'Ver', evidence %></td>
             <% if can? :update, @evidence %>
               <td><%= link_to 'Editar', edit_evidence_path(evidence) %></td>

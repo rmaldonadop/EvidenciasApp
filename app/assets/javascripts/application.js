@@ -15,4 +15,6 @@
 //= require Chart.bundle
 //= require chartkick
 //= require toastr
+//= require jquery
+//= require jquery_ujs
 //= require_tree .

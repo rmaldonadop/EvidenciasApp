@@ -1,1 +1,10 @@
-<%= line_chart Evidence.group_by_month_of_year(:created_at).count.map{|k,v| [I18n.t("date.month_names"), v]} %>
+<% @evidences = Evidence.where('extract(year from created_at) = ?', Date.today.year ) %>
+<%= line_chart @evidences.group_by_month_of_year(:created_at).count.map{|k,v| [I18n.t("date.month_names")[k], v]}, title: Date.today.year.to_s, ytitle: "N° de Evidencias" %>
+<br>
+<br>
+<%= pie_chart @evidences.group_by_month_of_year(:created_at).count.map{|k,v| [I18n.t("date.month_names")[k], v]} %>
+<br>
+<br>
+<%= line_chart @evidences.group_by_month(:created_at).count %>
+<br>
+<br>
