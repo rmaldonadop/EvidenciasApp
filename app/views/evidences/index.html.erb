@@ -35,7 +35,7 @@
               <td><%= collection_select :sello, :codigo, Sello.all, :codigo, :tipo, {:prompt => 'Cualquiera'}, class: "form-control" %></td>
               <td><%= collection_select :evidencetype, :codigo, Evidencetype.all, :codigo, :tipo, {:prompt => 'Cualquiera'}, class: "form-control" %></td>
               <td><%= submit_tag "Filtrar", nombre: nil, class: "btn btn-success" %></td>
-              <td><a href="#" class="btn btn-info" role="button">Graficar</a></td>
+              <td><a href="/charts" class="btn btn-info" role="button">Graficar</a></td>
             </tr>
       </tbody>
     </table>
@@ -44,6 +44,8 @@
 
 <div class = "row">
   <h2>Listado de Evidencias</h2>
+  <input class="form-control" id="myInput" type="text" placeholder="Buscar..">
+  <br>
   <table class="table table-condensed table-hover" style="width: 100%">
     <thead>
       <tr>

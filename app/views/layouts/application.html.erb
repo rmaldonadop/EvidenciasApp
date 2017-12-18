@@ -12,7 +12,7 @@
     <p class="notice" style="<%= "display:none;" if notice.nil? %>" ><%= notice %></p>
     <p class="alert" style="<%= "display:none;" if alert.nil? %>" ><%= alert %></p>
     <header>
-      
+
       <% if usuario_signed_in? %>
         <nav class="row navbar navbar-inverse">
           <div class="container-fluid">
@@ -27,7 +27,6 @@
                 <li> <%= link_to "Evidencias", evidences_path %> </li>
                 <li> <%= link_to "Tipos de Evidencias", evidencetypes_path %> </li>
                 <li> <%= link_to "Sellos", sellos_path %> </li>
-                <li> <%= link_to "Editar Perfil", edit_usuario_registration_path(current_usuario) %> </li>
               <% end %>
 
               <% if current_usuario.rol_usuario? %>
@@ -35,6 +34,7 @@
               <% end %>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <li> <a href="/usuarios/edit" ><span class="glyphicon glyphicon-edit"> Editar Perfil</a> </li>
                 <li> <a href="/usuarios/sign_out" data-method="delete"><span class="glyphicon glyphicon-log-out"></span> Cerrar Sesion</a> </li>
             </ul>
           </div>

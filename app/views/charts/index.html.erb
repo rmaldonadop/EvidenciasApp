@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<br>
+<br>
+<% @evidences = Evidence.where('extract(year from created_at) = ?', Date.today.year ) %>
+<%= line_chart @evidences.group_by_month_of_year(:created_at).count.map{|k,v| [I18n.t("date.month_names")[k], v]}, title: Date.today.year.to_s, ytitle: "N° de Evidencias" %>
+<br>
+<br>
+<%= pie_chart @evidences.group_by_month_of_year(:created_at).count.map{|k,v| [I18n.t("date.month_names")[k], v]}, width: "600px", legend: "right" %>
+<br>
+<br>
+
+<% @evidencetype = Evidencetype.all %>
+<% arr = Array.new %>
+<% @evidencetype.each do |evt| %>
+<% arr.push(evt.tipo.to_s) %>
+<% end %>
+
+<%= pie_chart @evidences.group(:evidencetype).count.map{|k,v| [arr.shift, v]} , width: "600px", legend: "right" %>
+
+<%#= pie_chart [["tip a", 10], ["tipo b", 15]] %>
+
+<%#= line_chart @evidences.map { |ev|
+    {name: ev.evidencetype.tipo, data: ev.evidencetype.group_by_week(:created_at).count}
+}%>
+
+<br>
+<br>

@@ -26,26 +26,6 @@ class Evidence < ApplicationRecord
   	File.exists? path_archivo
   end
 
-  def get_facultad
-    self.codigo.to_s.split('_')[0]
-  end
-
-  def get_escuela
-    self.codigo.to_s.split('_')[1]
-  end
-
-  def get_carrera
-    self.codigo.to_s.split('_')[2]
-  end
-
-  def get_sello
-    self.codigo.to_s.split('_')[3]
-  end
-
-  def get_tipoev
-    self.codigo.to_s.split('_')[4]
-  end
-
   def self.search(term)
     if term
       where('nombre LIKE ?', "%#{term}%")
